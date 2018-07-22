@@ -26,10 +26,12 @@ int main(int argc, char *argv[]) {
     defaults.parallel = 1;
     defaults.show_refresh_rate = true;
     defaults.disable_hardware_pulsing = false;
+    rgb_matrix::RuntimeOptions runtime_opt;
 
-    RGBMatrix::RGBMatrix matrix(NULL, &defaults);
+    RGBMatrix *matrix = CreateMatrixFromOptions(defaults, runtime_opt);
+
     if (matrix == NULL) {
-        PrintMatrixFlags(stderr, defaults, runtime_defaults);
+        PrintMatrixFlags(stderr, defaults, runtime_opt);
         return 1;
     }
 
@@ -40,12 +42,15 @@ int main(int argc, char *argv[]) {
     signal(SIGTERM, InterruptHandler);
     signal(SIGINT, InterruptHandler);
 
+    Canvas *canvas = matrix;
+
     float angle = 45;
     while(!interrupt_received) {
-        drawing::DrawRectRot(matrix, 8, 8, 7, 3, angle, Color(230, 15, 35));
-        drawing::DrawRectRot(matrix, 8, 8, 3, 7, angle, Color(230, 15, 35));
-        drawing::DrawRectRot(matrix, 24, 8, 7, 3, angle, Color(230, 15, 35));
-        drawing::DrawRectRot(matrix, 24, 8, 3, 7, angle, Color(230, 15, 35));
+        drawing::DrawRectRot(canvas, 8, 8, 7, 3, angle, Color(230, 15, 35));
+        drawing::DrawRectRot(canvas, 8, 8, 3, 7, angle, Color(230, 15, 35));
+        drawing::DrawRectRot(canvas, 24, 8, 7, 3, angle, Color(230, 15, 35));
+        drawing::DrawRectRot(canvas, 24, 8, 3, 7, angle, Color(230, 15, 35));
+        angle += 90 / 1000
         usleep(1 * 1000);
     }
 
