@@ -3,16 +3,6 @@
 
 namespace drawing{
 
-struct Point{
-    int x;
-    int y;
-    Point(int _x, int _y) : x(_x), y(_y){}
-    Point operator+(const Point &p) {
-        this->x += p.x;
-        this->y += p.y;
-    }
-};
-
 
 void DrawRect(Canvas *c, int x, int y, int w, int h, const Color &color) {
     _ASSERT(w > 0);
