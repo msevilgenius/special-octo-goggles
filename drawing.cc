@@ -1,12 +1,13 @@
 #include <math.h>
+#include <assert.h>
 #include "drawing.h"
 
 namespace drawing{
 
 
 void DrawRect(Canvas *c, int x, int y, int w, int h, const Color &color) {
-    _ASSERT(w > 0);
-    _ASSERT(h > 0);
+    assert(w > 0);
+    assert(h > 0);
     for (auto i = 0; i < w; ++i) {
         for (auto j = 0; j < h; ++j) {
             c->SetPixel(x + i - (w/2), y + j - (h/2), color.r, color.g, color.b);
@@ -84,7 +85,7 @@ void DrawLineBresenham_shallow_ltr(Canvas *c, int x1, int y1, int x2, int y2, co
 }
 
 void DrawFlatTopTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &color) {
-    _ASSERT(p1.y == p2.y);
+    assert(p1.y == p2.y);
     float gl, gr;
     float xl, xr;
 
@@ -107,7 +108,7 @@ void DrawFlatTopTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &c
 }
 
 void DrawFlatBottomTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &color) {
-    _ASSERT(p2.y == p3.y);
+    assert(p2.y == p3.y);
     float gl, gr;
     float xl, xr;
 
