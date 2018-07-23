@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     defaults.chain_length = 1;
     defaults.parallel = 1;
     defaults.show_refresh_rate = true;
-    defaults.disable_hardware_pulsing = false;
+    defaults.disable_hardware_pulsing = true;
     rgb_matrix::RuntimeOptions runtime_opt;
 
     RGBMatrix *matrix = CreateMatrixFromOptions(defaults, runtime_opt);

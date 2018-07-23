@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdlib.h>
 #include <assert.h>
 #include "drawing.h"
 
@@ -100,10 +101,12 @@ void DrawFlatTopTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &c
     xl = p1.x;
     xr = p1.x;
 
-    for (int y = p2.y; y <= p1.y; --y) {
+    for (int y = p2.y; y > p1.y; --y) {
         for (int x = xl; x <= xr; ++x) {
             c->SetPixel(x, y, color.r, color.g, color.b);
         }
+        xl -= gl;
+        xr -= gr;
     }
 }
 
@@ -127,6 +130,8 @@ void DrawFlatBottomTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color
         for (int x = xl; x <= xr; ++x) {
             c->SetPixel(x, y, color.r, color.g, color.b);
         }
+        xl += gl;
+        xr += gr;
     }
 }
 
