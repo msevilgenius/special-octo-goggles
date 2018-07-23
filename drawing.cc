@@ -91,11 +91,11 @@ void DrawFlatTopTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &c
     float xl, xr;
 
     if (p1.x < p2.x) {
-        gl = (p3.x - p1.x) / (p2.y - p1.y);
+        gl = (p3.x - p1.x) / (p3.y - p1.y);
         gr = (p3.x - p2.x) / (p3.y - p2.y);
     } else {
         gl = (p3.x - p2.x) / (p3.y - p2.y);
-        gr = (p3.x - p1.x) / (p2.y - p1.y);
+        gr = (p3.x - p1.x) / (p3.y - p1.y);
     }
 
     xl = p1.x;
