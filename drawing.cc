@@ -93,20 +93,21 @@ void DrawFlatTopTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &c
     if (p1.x < p2.x) {
         gl = (p3.x - p1.x) / (float)(p3.y - p1.y);
         gr = (p3.x - p2.x) / (float)(p3.y - p2.y);
+        xl = p1.x;
+        xr = p2.x;
     } else {
         gl = (p3.x - p2.x) / (float)(p3.y - p2.y);
         gr = (p3.x - p1.x) / (float)(p3.y - p1.y);
+        xl = p2.x;
+        xr = p1.x;
     }
 
-    xl = p3.x;
-    xr = p3.x;
-
-    for (int y = p3.y; y >= p1.y; --y) {
+    for (int y = p1.y; y <= p3.y; ++y) {
         for (int x = xl; x <= xr; ++x) {
             c->SetPixel(x, y, color.r, color.g, color.b);
         }
-        xl -= gl;
-        xr -= gr;
+        xl += gl;
+        xr += gr;
     }
 }
 
@@ -118,20 +119,21 @@ void DrawFlatBottomTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color
     if (p2.x < p3.x) {
         gl = (p2.x - p1.x) / (float)(p2.y - p1.y);
         gr = (p3.x - p1.x) / (float)(p3.y - p1.y);
+        xl = p2.x;
+        xr = p3.x;
     } else {
         gl = (p3.x - p1.x) / (float)(p3.y - p1.y);
         gr = (p2.x - p1.x) / (float)(p2.y - p1.y);
+        xl = p3.x;
+        xr = p2.x;
     }
 
-    xl = p1.x;
-    xr = p1.x;
-
-    for (int y = p1.y; y <= p2.y; ++y) {
+    for (int y = p2.y; y >= p1.y; --y) {
         for (int x = xl; x <= xr; ++x) {
             c->SetPixel(x, y, color.r, color.g, color.b);
         }
-        xl += gl;
-        xr += gr;
+        xl -= gl;
+        xr -= gr;
     }
 }
 
