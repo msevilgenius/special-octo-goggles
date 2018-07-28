@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
         drawing::DrawRectRot(canvas, 8, 8, 3, 7, angle, Color(230, 15, 35));
         drawing::DrawRectRot(canvas, 24, 8, 7, 3, angle, Color(230, 15, 35));
         drawing::DrawRectRot(canvas, 24, 8, 3, 7, angle, Color(230, 15, 35));
-        angle += 90 / 1000;
+        angle += 90.0 / 1000.0;
         usleep(1 * 1000);
     }
 
