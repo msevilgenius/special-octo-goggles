@@ -91,17 +91,17 @@ void DrawFlatTopTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color &c
     float xl, xr;
 
     if (p1.x < p2.x) {
-        gl = (p3.x - p1.x) / (p3.y - p1.y);
-        gr = (p3.x - p2.x) / (p3.y - p2.y);
+        gl = (p3.x - p1.x) / (float)(p3.y - p1.y);
+        gr = (p3.x - p2.x) / (float)(p3.y - p2.y);
     } else {
-        gl = (p3.x - p2.x) / (p3.y - p2.y);
-        gr = (p3.x - p1.x) / (p3.y - p1.y);
+        gl = (p3.x - p2.x) / (float)(p3.y - p2.y);
+        gr = (p3.x - p1.x) / (float)(p3.y - p1.y);
     }
 
-    xl = p1.x;
-    xr = p1.x;
+    xl = p3.x;
+    xr = p3.x;
 
-    for (int y = p2.y; y > p1.y; --y) {
+    for (int y = p3.y; y >= p1.y; --y) {
         for (int x = xl; x <= xr; ++x) {
             c->SetPixel(x, y, color.r, color.g, color.b);
         }
@@ -116,11 +116,11 @@ void DrawFlatBottomTriangle(Canvas *c, Point p1, Point p2, Point p3, const Color
     float xl, xr;
 
     if (p2.x < p3.x) {
-        gl = (p2.x - p1.x) / (p2.y - p1.y);
-        gr = (p3.x - p1.x) / (p3.y - p1.y);
+        gl = (p2.x - p1.x) / (float)(p2.y - p1.y);
+        gr = (p3.x - p1.x) / (float)(p3.y - p1.y);
     } else {
-        gl = (p3.x - p1.x) / (p3.y - p1.y);
-        gr = (p2.x - p1.x) / (p2.y - p1.y);
+        gl = (p3.x - p1.x) / (float)(p3.y - p1.y);
+        gr = (p2.x - p1.x) / (float)(p2.y - p1.y);
     }
 
     xl = p1.x;
@@ -181,8 +181,8 @@ Point RotatePoint(Point p, float angle) {
     auto theta = angle * PI / 180;
     auto sint = sin(theta);
     auto cost = cos(theta);
-    x = p.x * cost + p.y * -sint;
-    y = p.x * sint + p.y * cost;
+    x = round(p.x * cost + p.y * -sint);
+    y = round(p.x * sint + p.y * cost);
     return Point(x, y);
 }
 

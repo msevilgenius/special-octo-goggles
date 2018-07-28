@@ -21,7 +21,8 @@ int main(int argc, char *argv[]) {
 
     RGBMatrix::Options defaults;
     defaults.hardware_mapping = "regular-pi1";
-    defaults.rows = 32;
+    defaults.rows = 16;
+    defaults.cols = 32;
     defaults.chain_length = 1;
     defaults.parallel = 1;
     defaults.show_refresh_rate = true;
@@ -46,6 +47,7 @@ int main(int argc, char *argv[]) {
 
     float angle = 45;
     while(!interrupt_received) {
+
         drawing::DrawRectRot(canvas, 8, 8, 7, 3, angle, Color(230, 15, 35));
         drawing::DrawRectRot(canvas, 8, 8, 3, 7, angle, Color(230, 15, 35));
         drawing::DrawRectRot(canvas, 24, 8, 7, 3, angle, Color(230, 15, 35));
