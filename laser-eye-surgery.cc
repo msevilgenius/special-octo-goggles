@@ -43,16 +43,14 @@ int main(int argc, char *argv[]) {
     signal(SIGTERM, InterruptHandler);
     signal(SIGINT, InterruptHandler);
 
-    Canvas *canvas = matrix;
+    Roomba face(matrix);
 
-    float angle = 45;
+    face.Start();
+
     while(!interrupt_received) {
+        face.Update(NULL, 1 * 1000);
 
-        drawing::DrawRectRot(canvas, 8, 8, 7, 3, angle, Color(230, 15, 35));
-        drawing::DrawRectRot(canvas, 8, 8, 3, 7, angle, Color(230, 15, 35));
-        drawing::DrawRectRot(canvas, 24, 8, 7, 3, angle, Color(230, 15, 35));
-        drawing::DrawRectRot(canvas, 24, 8, 3, 7, angle, Color(230, 15, 35));
-        angle += 90.0 / 1000.0;
+
         usleep(1 * 1000);
     }
 
