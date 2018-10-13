@@ -1,7 +1,8 @@
 {
     "C_Cpp.default.includePath": [
         "include",
-        "matrix/include"
+        "matrix/include",
+        "C:/dev/mingw32/include"
     ],
     "files.associations": {
         "cstdlib": "cpp",
@@ -9,6 +10,7 @@
         "iosfwd": "cpp",
         "xlocale": "cpp",
         "ios": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "xutility": "cpp"
     },
 }
