@@ -5,6 +5,7 @@ namespace faces{
 namespace roomba{
 
 using namespace faces::roomba;
+using rgb_matrix::FrameCanvas;
 
 Normal::Normal(Color color) : _color(color)
 {

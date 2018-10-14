@@ -16,7 +16,7 @@ class IFace {
 
 class IFaceState {
     public:
-        virtual void Render(FrameCanvas* canvas);
+        virtual void Render(rgb_matrix::FrameCanvas* canvas);
 };
 
 

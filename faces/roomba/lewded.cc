@@ -5,6 +5,7 @@ namespace roomba{
 
 using namespace faces::roomba;
 using rgb_matrix::Color;
+using rgb_matrix::FrameCanvas;
 
 Lewded::Lewded(Color color) : _color(color)
 {

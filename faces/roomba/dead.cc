@@ -6,6 +6,7 @@ namespace roomba{
 
 using namespace faces::roomba;
 using rgb_matrix::Color;
+using rgb_matrix::FrameCanvas;
 
 Dead::Dead(Color color) : _color(color)
 {

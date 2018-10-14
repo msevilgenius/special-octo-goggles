@@ -3,6 +3,7 @@
 namespace faces{
 
 using namespace rgb_matrix;
+using rgb_matrix::FrameCanvas;
 
 Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(Roomba::Normal(color)), closed_face(Roomba::Closed(color)),
                                     happy_face(Roomba::Happy(color)), dead_face(Roomba::Dead(color)), lewded_face(Roomba::Lewded(color)),
