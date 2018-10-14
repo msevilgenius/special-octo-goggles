@@ -16,8 +16,8 @@ Closed::Closed(Color color) : _color(color)
 
 void Closed::Render(FrameCanvas* canvas)
 {
-    DrawRect(canvas,  3, 8, 9, 2, _color);
-    DrawRect(canvas, 20, 8, 9, 2, _color);
+    drawing::DrawRect(canvas,  3, 8, 9, 2, _color);
+    drawing::DrawRect(canvas, 20, 8, 9, 2, _color);
 }
 
 }
