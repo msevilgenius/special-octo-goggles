@@ -28,6 +28,10 @@ enum RoombaState{
 class Roomba : public IFace {
     public:
         Roomba(RGBMatrix* matrix);
+        ~Roomba();
+        void Start();
+        void Update(const Uint32 time);
+        void OnEvent(SDL_Event* event);
     private:
         RGBMatrix *matrix;
         FrameCanvas *offscreen;

@@ -6,8 +6,8 @@ using namespace rgb_matrix;
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::FrameCanvas;
 
-Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(Roomba::Normal(color)), closed_face(Roomba::Closed(color)),
-                                    happy_face(Roomba::Happy(color)), dead_face(Roomba::Dead(color)), lewded_face(Roomba::Lewded(color)),
+Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(roomba::Normal(color)), closed_face(roomba::Closed(color)),
+                                    happy_face(roomba::Happy(color)), dead_face(roomba::Dead(color)), lewded_face(roomba::Lewded(color)),
                                     current_face(&normal_face)
 {
     offscreen = matrix->CreateFrameCanvas();
@@ -20,7 +20,7 @@ Roomba::~Roomba()
 }
 
 
-Roomba::Start()
+void Roomba::Start()
 {
 }
 
@@ -54,7 +54,7 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
 {
     switch (state){
         case normal:
-            state_timer += frameTime
+            state_timer += frameTime;
             if (state_timer >= state_change_time) {
                 state = blink;
                 current_face = &closed_face;
@@ -63,7 +63,7 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
             }
             break;
         case blink:
-            state_timer += frameTime
+            state_timer += frameTime;
             if (state_timer >= state_change_time){
                 state = normal;
                 current_face = &normal_face;
