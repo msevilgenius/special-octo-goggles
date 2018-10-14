@@ -13,7 +13,7 @@ namespace roomba{
 
 class Dead : public IFaceState {
     public:
-        Dead(Color color)
+        Dead(Color color);
     private:
         Color _color;
 };

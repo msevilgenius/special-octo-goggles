@@ -13,7 +13,7 @@ namespace roomba{
 
 class Normal : public IFaceState {
     public:
-        Normal(Color color)
+        Normal(Color color);
     private:
         Color _color;
 };

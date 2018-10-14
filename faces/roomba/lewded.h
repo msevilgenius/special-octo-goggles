@@ -13,7 +13,7 @@ namespace roomba{
 
 class Lewded : public IFaceState {
     public:
-        Lewded(Color color)
+        Lewded(Color color);
     private:
         Color _color;
 };

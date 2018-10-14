@@ -13,7 +13,7 @@ namespace roomba{
 
 class Happy : public IFaceState {
     public:
-        Happy(Color color)
+        Happy(Color color);
     private:
         Color _color;
 };
