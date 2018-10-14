@@ -2,6 +2,7 @@
 
 #include "led-matrix.h"
 
+#include "SDL2/SDL.h"
 
 namespace faces{
 
@@ -15,8 +16,8 @@ class IFace {
 
 class IFaceState {
     public:
-        virtual Render(FrameCanvas* canvas);
-}
+        virtual void Render(FrameCanvas* canvas);
+};
 
 
 }

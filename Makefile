@@ -1,4 +1,4 @@
-CXX=g++-4.7
+CXX=g++
 CXXFLAGS=-std=c++11 -Wall -O3 -g
 SRCS=laser-eye-surgery.cc drawing.cc face/roomba/roomba.cc
 OBJECTS=$(subst .cc,.o,$(SRCS))

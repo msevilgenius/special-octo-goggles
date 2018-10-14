@@ -1,5 +1,8 @@
 #include "faces/roomba/lewded.h"
 
+namespace faces{
+namespace roomba{
+
 using namespace faces::roomba;
 using rgb_matrix::Color;
 
@@ -27,4 +30,7 @@ Lewded::Render(FrameCanvas* canvas)
     DrawLine(offscreen, 24, 11, 21, 8, _color);
     DrawLine(offscreen, 25, 11, 22, 8, _color);
     DrawLine(offscreen, 26, 11, 23, 8, _color);
+}
+
+}
 }

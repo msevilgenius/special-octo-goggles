@@ -1,5 +1,9 @@
 #include "faces/roomba/happy.h"
 
+
+namespace faces{
+namespace roomba{
+
 using namespace faces::roomba;
 using rgb_matrix::Color;
 
@@ -25,4 +29,7 @@ Happy::Render(FrameCanvas* canvas)
     DrawLine(offscreen, 25, 4, 28, 7, _color);
     DrawLine(offscreen, 25, 5, 28, 8, _color);
     DrawLine(offscreen, 25, 6, 27, 8, _color);
+}
+
+}
 }

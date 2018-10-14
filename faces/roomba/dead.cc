@@ -1,5 +1,9 @@
 #include "faces/roomba/dead.h"
 
+
+namespace faces{
+namespace roomba{
+
 using namespace faces::roomba;
 using rgb_matrix::Color;
 
@@ -27,4 +31,7 @@ Dead::Render(FrameCanvas* canvas)
             DrawLine(offscreen, 21, 10, 26, 5, _color);
             DrawLine(offscreen, 21, 11, 27, 5, _color);
             DrawLine(offscreen, 22, 11, 27, 6, _color);
+}
+
+}
 }

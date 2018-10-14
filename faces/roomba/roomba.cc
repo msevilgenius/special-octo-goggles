@@ -1,5 +1,7 @@
 #include "faces/roomba/roomba.h"
 
+namespace faces{
+
 using namespace rgb_matrix;
 
 Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(Roomba::Normal(color)), closed_face(Roomba::Closed(color)),
@@ -72,4 +74,6 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
         case lewded:
             break;
     }
+}
+
 }
