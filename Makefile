@@ -1,6 +1,6 @@
 CXX=g++
 CXXFLAGS=-std=c++11 -Wall -O3 -g
-SRCS=laser-eye-surgery.cc drawing.cc face/roomba/roomba.cc
+SRCS=laser-eye-surgery.cc drawing.cc $(wildcard faces/*/*.cc)
 OBJECTS=$(subst .cc,.o,$(SRCS))
 BINARIES=laser-eye-surgery
 
