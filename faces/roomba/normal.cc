@@ -1,4 +1,4 @@
-#include "faces/roomba/normal.h"
+#include "normal.h"
 
 
 namespace faces{

@@ -1,4 +1,4 @@
-#include "faces/roomba/closed.h"
+#include "closed.h"
 
 namespace faces{
 namespace roomba{

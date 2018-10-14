@@ -1,4 +1,4 @@
-#include "faces/roomba/happy.h"
+#include "happy.h"
 
 
 namespace faces{
