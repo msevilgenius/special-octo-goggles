@@ -1,6 +1,6 @@
 #pragma once
 
-#include "faces/faces.h"
+#include "../faces.h"
 
 #include "graphics.h"
 

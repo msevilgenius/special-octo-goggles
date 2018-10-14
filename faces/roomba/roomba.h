@@ -1,12 +1,12 @@
 #pragma once
 
-#include "faces/roomba/normal.h"
-#include "faces/roomba/closed.h"
-#include "faces/roomba/happy.h"
-#include "faces/roomba/dead.h"
-#include "faces/roomba/lewded.h"
+#include "normal.h"
+#include "closed.h"
+#include "happy.h"
+#include "dead.h"
+#include "lewded.h"
 
-#include "faces/faces.h"
+#include "../faces.h"
 #include "led-matrix.h"
 #include "graphics.h"
 #include "drawing.h"
