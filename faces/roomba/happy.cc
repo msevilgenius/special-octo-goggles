@@ -14,7 +14,7 @@ Happy::Happy(Color color) : _color(color)
 }
 
 
-Happy::Render(FrameCanvas* canvas)
+void Happy::Render(FrameCanvas* canvas)
 {
     // draw left ^
     DrawLine(offscreen, 3, 7, 7, 3, _color);

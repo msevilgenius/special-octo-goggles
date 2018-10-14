@@ -13,7 +13,7 @@ Lewded::Lewded(Color color) : _color(color)
 }
 
 
-Lewded::Render(FrameCanvas* canvas)
+void Lewded::Render(FrameCanvas* canvas)
 {
     // draw left >
     DrawLine(offscreen, 5, 4,  8, 7, _color);

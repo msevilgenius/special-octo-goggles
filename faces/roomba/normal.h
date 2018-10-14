@@ -14,6 +14,7 @@ namespace roomba{
 class Normal : public IFaceState {
     public:
         Normal(Color color);
+        void Render(rgb_matrix::FrameCanvas* canvas);
     private:
         Color _color;
 };

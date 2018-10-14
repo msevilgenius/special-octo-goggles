@@ -13,7 +13,7 @@ Normal::Normal(Color color) : _color(color)
 }
 
 
-Normal::Render(FrameCanvas* canvas)
+void Normal::Render(FrameCanvas* canvas)
 {
     DrawRect(offscreen, 6, 5, 3, 6, _color)
     offscreen->SetPixel( 7,  4, _color.r, _color.g, _color.b);

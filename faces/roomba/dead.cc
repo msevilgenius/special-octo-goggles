@@ -14,7 +14,7 @@ Dead::Dead(Color color) : _color(color)
 }
 
 
-Dead::Render(FrameCanvas* canvas)
+void Dead::Render(FrameCanvas* canvas)
 {
             // draw left x
             DrawLine(offscreen, 4, 5, 10, 11, _color);

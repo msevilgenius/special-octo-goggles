@@ -14,7 +14,7 @@ Closed::Closed(Color color) : _color(color)
 }
 
 
-Closed::Render(FrameCanvas* canvas)
+void Closed::Render(FrameCanvas* canvas)
 {
     DrawRect(offscreen,  3, 8, 9, 2, _color);
     DrawRect(offscreen, 20, 8, 9, 2, _color);
