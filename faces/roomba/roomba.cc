@@ -59,7 +59,7 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
                 state = blink;
                 current_face = &closed_face;
                 state_timer -= state_change_time;
-                state_change_time = 400;
+                state_change_time = 600;
             }
             break;
         case blink:
@@ -68,7 +68,8 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
                 state = normal;
                 current_face = &normal_face;
                 state_timer -= state_change_time;
-                state_change_time = (rand() % 100 + 2) * 100;
+                //state_change_time = (rand() % 100 + 2) * 100;
+                state_change_time = 10000;
             }
             break;
         case happy:
