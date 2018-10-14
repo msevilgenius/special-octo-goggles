@@ -1,3 +1,5 @@
+#include "faces/faces.h"
+
 #include "led-matrix.h"
 #include "drawing.h"
 
@@ -7,6 +9,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <signal.h>
+#include <iostream>
 
 using rgb_matrix::GPIO;
 using rgb_matrix::RGBMatrix;
@@ -55,7 +58,7 @@ int main(int argc, char *argv[]) {
 
     if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS)) {
         delete matrix;
-        std::cout << (failed sdl init) << std::endl;
+        std::cout << "failed sdl init" << std::endl;
         return 1;
     }
 
@@ -63,7 +66,7 @@ int main(int argc, char *argv[]) {
 
 
 
-    Roomba face(matrix);
+    faces::Roomba face(matrix);
 
     face.Start();
 
