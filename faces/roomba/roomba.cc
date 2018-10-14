@@ -16,7 +16,7 @@ Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(r
 
 Roomba::~Roomba()
 {
-    delete offscreen;
+    // offscreen is owned by the matrix
 }
 
 
@@ -24,9 +24,9 @@ void Roomba::Start()
 {
 }
 
-void Roomba::OnEvent(SDL_Event& event)
+void Roomba::OnEvent(SDL_Event* event)
 {
-    switch(event.type) {
+    switch(event->type) {
         case SDL_CONTROLLERAXISMOTION:
         case SDL_JOYAXISMOTION:
             break;
@@ -44,7 +44,7 @@ void Roomba::OnEvent(SDL_Event& event)
 
 void Roomba::Update(const Uint32 frameTime)
 {
-    state = DoStateUpdate(Uint32 frameTime, state)
+    DoStateUpdate(frameTime, state);
 
     current_face->Render(offscreen);
     offscreen = matrix->SwapOnVSync(offscreen);
