@@ -12,6 +12,7 @@
 #include "../../drawing.h"
 
 using rgb_matrix::Color;
+using rgb_matrix::RGBMatrix;
 using rgb_matrix::FrameCanvas;
 
 namespace faces{
@@ -31,7 +32,7 @@ class Roomba : public IFace {
         RGBMatrix *matrix;
         FrameCanvas *offscreen;
         RoombaState state;
-        const Color color = Color(256, 0, 148);
+        const Color color = Color(255, 0, 148);
         Uint32 state_timer;
         Uint32 state_change_time;
 

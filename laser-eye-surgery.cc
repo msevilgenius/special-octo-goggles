@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
 
         currentTime = SDL_GetTicks();
         frameTime = currentTime - lastRenderTime;
-        face.Update(NULL, frameTime);
+        face.Update(frameTime);
         lastRenderTime = currentTime;
     }
 
