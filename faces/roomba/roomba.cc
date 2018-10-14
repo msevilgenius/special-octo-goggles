@@ -44,7 +44,7 @@ void Roomba::OnEvent(SDL_Event* event)
 
 void Roomba::Update(const Uint32 frameTime)
 {
-    DoStateUpdate(frameTime, state);
+    DoStateUpdate(frameTime);
 
     current_face->Render(offscreen);
     offscreen = matrix->SwapOnVSync(offscreen);
