@@ -8,7 +8,7 @@ using rgb_matrix::FrameCanvas;
 
 Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(roomba::Normal(color)), closed_face(roomba::Closed(color)),
                                     happy_face(roomba::Happy(color)), dead_face(roomba::Dead(color)), lewded_face(roomba::Lewded(color)),
-                                    current_face(&normal_face)
+                                    current_face(&normal_face), button_down(false)
 {
     offscreen = matrix->CreateFrameCanvas();
 }
@@ -33,10 +33,12 @@ void Roomba::OnEvent(SDL_Event* event)
         case SDL_CONTROLLERBUTTONDOWN:
         case SDL_JOYBUTTONDOWN:
         case SDL_KEYDOWN:
+            button_down = true;
             break;
         case SDL_CONTROLLERBUTTONUP:
         case SDL_JOYBUTTONUP:
         case SDL_KEYUP:
+            button_down = false;
             break;
     }
 }
@@ -52,6 +54,12 @@ void Roomba::Update(const Uint32 frameTime)
 
 void Roomba::DoStateUpdate(const Uint32 frameTime)
 {
+
+    if (!button_down){
+        state = dead;
+        current_face = &dead_face;
+        return;
+    }
     switch (state){
         case normal:
             state_timer += frameTime;
@@ -59,7 +67,7 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
                 state = blink;
                 current_face = &closed_face;
                 state_timer -= state_change_time;
-                state_change_time = 350;
+                state_change_time = 300;
             }
             break;
         case blink:
@@ -75,6 +83,13 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
         case happy:
         case dead:
         case lewded:
+            if (!button_down){
+                state = normal;
+                current_face = &normal_face;
+                state_timer -= state_change_time;
+                state_change_time = (rand() % 100 + 2) * 100;
+                //state_change_time = 10000;
+            }
             break;
     }
 }
