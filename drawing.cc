@@ -11,7 +11,8 @@ void DrawRect(Canvas *c, int x, int y, int w, int h, const Color &color) {
     assert(h > 0);
     for (auto i = 0; i < w; ++i) {
         for (auto j = 0; j < h; ++j) {
-            c->SetPixel(x + i - (w/2), y + j - (h/2), color.r, color.g, color.b);
+            //c->SetPixel(x + i - (w/2), y + j - (h/2), color.r, color.g, color.b);
+            c->SetPixel(x + i, y + j, color.r, color.g, color.b);
         }
     }
 }
