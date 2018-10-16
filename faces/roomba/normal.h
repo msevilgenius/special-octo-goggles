@@ -15,8 +15,11 @@ class Normal : public IFaceState {
     public:
         Normal(Color color);
         void Render(rgb_matrix::FrameCanvas* canvas);
+        void SetPosition(int xEye, int yEye) { x = xEye; y = yEye; }
     private:
         Color _color;
+        int x;
+        int y;
 };
 
 }

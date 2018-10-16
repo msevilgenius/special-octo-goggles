@@ -39,7 +39,8 @@ class Roomba : public IFace {
         const Color color = Color(180, 0, 148);
         Uint32 state_timer;
         Uint32 state_change_time;
-        bool button_down;
+
+        SDL_Joystick* joystick;
 
         void DoStateUpdate(Uint32 time);
 

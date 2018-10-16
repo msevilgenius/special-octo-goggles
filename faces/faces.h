@@ -17,6 +17,7 @@ class IFace {
 class IFaceState {
     public:
         virtual void Render(rgb_matrix::FrameCanvas* canvas) {}
+        virtual void SetPosition(int xEye, int yEye) {}
 };
 
 

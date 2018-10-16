@@ -63,12 +63,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    SDL_JoystickEventState(SDL_ENABLE);
-    SDL_GameControllerEventState(SDL_ENABLE);
-    SDL_GameControllerOpen(0);
-
-
-
     faces::Roomba face(matrix);
 
     face.Start();
