@@ -55,8 +55,8 @@ void Roomba::Update(const Uint32 frameTime)
 
 void Roomba::DoStateUpdate(const Uint32 frameTime)
 {
-    Sint16 xAxis = SDL_JoystickGetAxis(0);
-    Sint16 yAxis = SDL_JoystickGetAxis(1);
+    Sint16 xAxis = SDL_JoystickGetAxis(joystick, 0);
+    Sint16 yAxis = SDL_JoystickGetAxis(joystick, 1);
 
     int xEye = xAxis / 8192;
     int yEye = yAxis / 8192;
