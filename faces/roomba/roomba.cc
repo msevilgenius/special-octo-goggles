@@ -34,12 +34,10 @@ void Roomba::OnEvent(SDL_Event* event)
         case SDL_CONTROLLERBUTTONDOWN:
         case SDL_JOYBUTTONDOWN:
         case SDL_KEYDOWN:
-            button_down = true;
             break;
         case SDL_CONTROLLERBUTTONUP:
         case SDL_JOYBUTTONUP:
         case SDL_KEYUP:
-            button_down = false;
             break;
     }
 }
