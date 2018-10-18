@@ -27,7 +27,7 @@ enum RoombaState{
 
 class Roomba : public IFace {
     public:
-        Roomba(RGBMatrix* matrix);
+        Roomba(RGBMatrix* matrix, SDL_Joystick* js);
         ~Roomba();
         void Start();
         void Update(const Uint32 time);

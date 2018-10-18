@@ -8,7 +8,7 @@ using rgb_matrix::FrameCanvas;
 
 Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(roomba::Normal(color)), closed_face(roomba::Closed(color)),
                                     happy_face(roomba::Happy(color)), dead_face(roomba::Dead(color)), lewded_face(roomba::Lewded(color)),
-                                    current_face(&normal_face), joystick(SDL_JoystickOpen(0))
+                                    current_face(&normal_face), joystick(js)
 {
     offscreen = matrix->CreateFrameCanvas();
 }
@@ -17,7 +17,6 @@ Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(r
 Roomba::~Roomba()
 {
     // offscreen is owned by the matrix
-    SDL_JoystickClose(joystick);
 }
 
 

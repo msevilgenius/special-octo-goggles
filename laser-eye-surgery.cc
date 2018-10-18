@@ -50,6 +50,18 @@ int main(int argc, char *argv[]) {
     signal(SIGTERM, InterruptHandler);
     signal(SIGINT, InterruptHandler);
 
+    if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS)) {
+        delete matrix;
+        std::cout << "failed sdl init" << std::endl;
+        return 1;
+    }
+
+    SDL_Joystick* joystick;
+    joystick = SDL_JoystickOpen(0);
+    std::cout << "js0: " << SDL_JoystickNumAxes(joystick) << " axes\n";
+    std::cout << "js0: " << SDL_JoystickNumButtons(joystick) << " buttons\n";
+    std::cout << "js0 axis0: " << SDL_JoystickGetAxis(joystick, 0); << "\n";
+
     RGBMatrix *matrix = CreateMatrixFromOptions(defaults, runtime_opt);
 
     if (matrix == NULL) {
@@ -57,18 +69,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS)) {
-        delete matrix;
-        std::cout << "failed sdl init" << std::endl;
-        return 1;
-    }
-
-    faces::Roomba face(matrix);
+    faces::Roomba face(matrix, joystick);
 
     face.Start();
 
     while(!interrupt_received) {
 
+        SDL_JoystickUpdate();
 
         while (SDL_PollEvent(&event)){
             OnEvent(&event);
@@ -79,6 +86,7 @@ int main(int argc, char *argv[]) {
         face.Update(frameTime);
         lastRenderTime = currentTime;
     }
+    SDL_JoystickClose(joystick);
 
     SDL_Quit();
     delete matrix;
