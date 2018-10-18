@@ -6,7 +6,7 @@ using namespace rgb_matrix;
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::FrameCanvas;
 
-Roomba::Roomba(RGBMatrix *matrix) : matrix(matrix), state(normal), normal_face(roomba::Normal(color)), closed_face(roomba::Closed(color)),
+Roomba::Roomba(RGBMatrix *matrix, SDL_Joystick* js) : matrix(matrix), state(normal), normal_face(roomba::Normal(color)), closed_face(roomba::Closed(color)),
                                     happy_face(roomba::Happy(color)), dead_face(roomba::Dead(color)), lewded_face(roomba::Lewded(color)),
                                     current_face(&normal_face), joystick(js)
 {
@@ -22,6 +22,8 @@ Roomba::~Roomba()
 
 void Roomba::Start()
 {
+    state_change_time = (rand() % 100 + 2) * 100;
+    state = normal;
 }
 
 void Roomba::OnEvent(SDL_Event* event)
@@ -57,7 +59,7 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
 
     int xEye = xAxis / 8192;
     int yEye = yAxis / 8192;
-    current_face->SetPosition(xEye, yEye);
+    current_face->SetPosition(-xEye, yEye);
 
     switch (state){
         case normal:

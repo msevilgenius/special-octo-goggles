@@ -51,7 +51,6 @@ int main(int argc, char *argv[]) {
     signal(SIGINT, InterruptHandler);
 
     if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS)) {
-        delete matrix;
         std::cout << "failed sdl init" << std::endl;
         return 1;
     }
@@ -60,12 +59,13 @@ int main(int argc, char *argv[]) {
     joystick = SDL_JoystickOpen(0);
     std::cout << "js0: " << SDL_JoystickNumAxes(joystick) << " axes\n";
     std::cout << "js0: " << SDL_JoystickNumButtons(joystick) << " buttons\n";
-    std::cout << "js0 axis0: " << SDL_JoystickGetAxis(joystick, 0); << "\n";
+    std::cout << "js0 axis0: " << SDL_JoystickGetAxis(joystick, 0) << "\n";
 
     RGBMatrix *matrix = CreateMatrixFromOptions(defaults, runtime_opt);
 
     if (matrix == NULL) {
         PrintMatrixFlags(stderr, defaults, runtime_opt);
+        SDL_Quit();
         return 1;
     }
 
