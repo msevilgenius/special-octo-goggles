@@ -61,6 +61,8 @@ int main(int argc, char *argv[]) {
     std::cout << "js0: " << SDL_JoystickNumButtons(joystick) << " buttons\n";
     std::cout << "js0 axis0: " << SDL_JoystickGetAxis(joystick, 0) << "\n";
 
+    int SDL_JoystickEventState(SDL_ENABLE);
+
     RGBMatrix *matrix = CreateMatrixFromOptions(defaults, runtime_opt);
 
     if (matrix == NULL) {
