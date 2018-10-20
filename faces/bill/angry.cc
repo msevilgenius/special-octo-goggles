@@ -7,7 +7,7 @@ namespace bill{
 using namespace faces::bill;
 using rgb_matrix::FrameCanvas;
 
-Angry::Angry(Color color) : _color(color)
+Angry::Angry()
 {
 
 }

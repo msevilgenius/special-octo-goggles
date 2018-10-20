@@ -50,7 +50,7 @@ class Bill : public IFace {
         bill::Closed closed_face;
         bill::Brows brows_face;
         bill::Quizical quizical_face;
-        bill::Angry lewded_face;
+        bill::Angry angry_face;
 };
 
 

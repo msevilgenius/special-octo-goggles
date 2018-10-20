@@ -1,13 +1,15 @@
 #include "bill.h"
 
+#include <iostream>
+
 namespace faces{
 
 using namespace rgb_matrix;
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::FrameCanvas;
 
-Bill::Bill(RGBMatrix *matrix, SDL_Joystick* js) : matrix(matrix), state(normal), normal_face(roomba::Normal(color)), closed_face(roomba::Closed(color)),
-                                    happy_face(roomba::Happy(color)), dead_face(roomba::Dead(color)), lewded_face(roomba::Lewded(color)),
+Bill::Bill(RGBMatrix *matrix, SDL_Joystick* js) : matrix(matrix), state(normal), normal_face(bill::Normal(color)), closed_face(bill::Closed(color)),
+                                    brows_face(bill::Brows(color)), quizical_face(bill::Quizical(color)), angry_face(bill::Angry()),
                                     current_face(&normal_face), joystick(js)
 {
     offscreen = matrix->CreateFrameCanvas();

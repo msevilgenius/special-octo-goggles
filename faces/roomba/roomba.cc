@@ -1,5 +1,7 @@
 #include "roomba.h"
 
+#include <iostream>
+
 namespace faces{
 
 using namespace rgb_matrix;
