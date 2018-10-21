@@ -23,7 +23,7 @@ static void InterruptHandler(int signo) {
   interrupt_received = true;
 }
 
-void OnEvent(SDL_Event* event, Iface* face) {
+void OnEvent(SDL_Event* event, IFace* face) {
     face->OnEvent(event);
 }
 
@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
         SDL_JoystickUpdate();
 
         while (SDL_PollEvent(&event)){
-            OnEvent(&event);
+            OnEvent(&event, face);
         }
 
         currentTime = SDL_GetTicks();
