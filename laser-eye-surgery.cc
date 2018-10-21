@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
         SDL_JoystickUpdate();
 
         while (SDL_PollEvent(&event)){
-            OnEvent(&event, face);
+            OnEvent(&event, &face);
         }
 
         currentTime = SDL_GetTicks();
