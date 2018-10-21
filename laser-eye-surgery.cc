@@ -23,8 +23,8 @@ static void InterruptHandler(int signo) {
   interrupt_received = true;
 }
 
-void OnEvent(SDL_Event* event) {
-
+void OnEvent(SDL_Event* event, Iface* face) {
+    face->OnEvent(event);
 }
 
 int main(int argc, char *argv[]) {
