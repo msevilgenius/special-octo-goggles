@@ -104,8 +104,8 @@ void Bill::DoStateUpdate(const Uint32 frameTime)
     Sint16 xAxis = SDL_JoystickGetAxis(joystick, 0);
     Sint16 yAxis = SDL_JoystickGetAxis(joystick, 1);
 
-    int xEye = xAxis / 8192;
-    int yEye = yAxis / 8192;
+    int xEye = xAxis / 8190;
+    int yEye = yAxis / 8190;
 
     switch (state){
         case normalBill:
