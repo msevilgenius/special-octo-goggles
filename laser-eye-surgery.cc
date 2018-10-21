@@ -1,5 +1,6 @@
 #include "faces/faces.h"
 #include "faces/roomba/roomba.h"
+#include "faces/bill/bill.h"
 
 #include "led-matrix.h"
 #include "drawing.h"
