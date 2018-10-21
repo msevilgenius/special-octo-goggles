@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    faces::Roomba face(matrix, joystick);
+    faces::Bill face(matrix, joystick);
 
     face.Start();
 
