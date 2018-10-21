@@ -38,19 +38,8 @@ void Bill::OnEvent(SDL_Event* event)
         case SDL_JOYBUTTONDOWN:
             switch (event->jbutton.button) {
                 case 0:
-                    if (state == closed) {
-                        state = normal;
-                        current_face = &normal_face;
-                        state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
-                        break;
-                    }
-                    state = closed;
-                    current_face = &closed_face;
-                    break;
-                case 1:
                     if (state == brows) {
-                        state = normal;
+                        state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
                         state_change_time = (rand() % 100 + 2) * 100;
@@ -59,9 +48,20 @@ void Bill::OnEvent(SDL_Event* event)
                     state = brows;
                     current_face = &brows_face;
                     break;
+                case 1:
+                    if (state == closed) {
+                        state = normalBill;
+                        current_face = &normal_face;
+                        state_timer = 0;
+                        state_change_time = (rand() % 100 + 2) * 100;
+                        break;
+                    }
+                    state = closed;
+                    current_face = &closed_face;
+                    break;
                 case 2:
                     if (state == quizical) {
-                        state = normal;
+                        state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
                         state_change_time = (rand() % 100 + 2) * 100;
@@ -72,7 +72,7 @@ void Bill::OnEvent(SDL_Event* event)
                     break;
                 case 3:
                     if (state == angry) {
-                        state = normal;
+                        state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
                         state_change_time = (rand() % 100 + 2) * 100;
@@ -108,19 +108,19 @@ void Bill::DoStateUpdate(const Uint32 frameTime)
     int yEye = yAxis / 8192;
 
     switch (state){
-        case normal:
+        case normalBill:
             state_timer += frameTime;
             if (state_timer >= state_change_time) {
-                state = blink;
+                state = blinkBill;
                 current_face = &closed_face;
                 state_timer -= state_change_time;
                 state_change_time = 250;
             }
             break;
-        case blink:
+        case blinkBill:
             state_timer += frameTime;
             if (state_timer >= state_change_time){
-                state = normal;
+                state = normalBill;
                 current_face = &normal_face;
                 state_timer -= state_change_time;
                 state_change_time = (rand() % 100 + 2) * 100;

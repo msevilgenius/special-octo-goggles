@@ -18,8 +18,8 @@ using rgb_matrix::FrameCanvas;
 namespace faces{
 
 enum BillState{
-    normal,
-    blink,
+    normalBill,
+    blinkBill,
     closed,
     brows,
     quizical,
