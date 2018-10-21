@@ -26,6 +26,7 @@ void Roomba::Start()
 {
     state_change_time = (rand() % 100 + 2) * 100;
     state = normal;
+    state_timer = 0;
 }
 
 void Roomba::OnEvent(SDL_Event* event)
@@ -66,29 +67,36 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
 
     switch (state){
         case normal:
+            if (SDL_JoystickGetButton(joystick, 1) || SDL_JoystickGetButton(joystick, 0)){
+                state = happy;
+                current_face = &happy_face;
+            }
             state_timer += frameTime;
             if (state_timer >= state_change_time) {
-                std::cout << "blinking\n";
                 state = blink;
                 current_face = &closed_face;
                 state_timer -= state_change_time;
-                state_change_time = 300;
+                state_change_time = 250;
             }
             break;
         case blink:
             state_timer += frameTime;
             if (state_timer >= state_change_time){
-                std::cout << "stopped blinking\n";
                 state = normal;
                 current_face = &normal_face;
                 state_timer -= state_change_time;
-                //state_change_time = (rand() % 100 + 2) * 100;
-                state_change_time = 10000;
+                state_change_time = (rand() % 100 + 2) * 100;
             }
             break;
         case happy:
         case dead:
         case lewded:
+            if (!SDL_JoystickGetButton(joystick, 1) && !SDL_JoystickGetButton(joystick, 0)){
+                state = normal;
+                current_face = &normal_face;
+                state_timer = 0;
+                state_change_time = (rand() % 100 + 2) * 100;
+            }
             break;
     }
     current_face->SetPosition(-xEye, yEye);
