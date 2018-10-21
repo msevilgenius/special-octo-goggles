@@ -24,7 +24,7 @@ Bill::~Bill()
 
 void Bill::Start()
 {
-    state_change_time = (rand() % 100 + 2) * 100;
+    state_change_time = (rand() % 100 + 10) * 150;
     state = normalBill;
     state_timer = 0;
 }
@@ -42,7 +42,7 @@ void Bill::OnEvent(SDL_Event* event)
                         state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = brows;
@@ -53,7 +53,7 @@ void Bill::OnEvent(SDL_Event* event)
                         state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = closed;
@@ -64,7 +64,7 @@ void Bill::OnEvent(SDL_Event* event)
                         state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = quizical;
@@ -75,7 +75,7 @@ void Bill::OnEvent(SDL_Event* event)
                         state = normalBill;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = angry;
@@ -123,7 +123,7 @@ void Bill::DoStateUpdate(const Uint32 frameTime)
                 state = normalBill;
                 current_face = &normal_face;
                 state_timer -= state_change_time;
-                state_change_time = (rand() % 100 + 2) * 100;
+                state_change_time = (rand() % 100 + 10) * 150;
             }
             break;
         case closed:

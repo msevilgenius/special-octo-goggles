@@ -72,6 +72,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    matrix->SetBrightness(50);
+
     faces::Bill face(matrix, joystick);
 
     face.Start();

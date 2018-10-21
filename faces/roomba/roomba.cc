@@ -24,7 +24,7 @@ Roomba::~Roomba()
 
 void Roomba::Start()
 {
-    state_change_time = (rand() % 100 + 2) * 100;
+    state_change_time = (rand() % 100 + 10) * 150;
     state = normal;
     state_timer = 0;
 }
@@ -42,7 +42,7 @@ void Roomba::OnEvent(SDL_Event* event)
                         state = normal;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = happy;
@@ -53,7 +53,7 @@ void Roomba::OnEvent(SDL_Event* event)
                         state = normal;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = lewded;
@@ -64,7 +64,7 @@ void Roomba::OnEvent(SDL_Event* event)
                         state = normal;
                         current_face = &normal_face;
                         state_timer = 0;
-                        state_change_time = (rand() % 100 + 2) * 100;
+                        state_change_time = (rand() % 100 + 10) * 150;
                         break;
                     }
                     state = dead;
@@ -116,7 +116,7 @@ void Roomba::DoStateUpdate(const Uint32 frameTime)
                 state = normal;
                 current_face = &normal_face;
                 state_timer -= state_change_time;
-                state_change_time = (rand() % 100 + 2) * 100;
+                state_change_time = (rand() % 100 + 10) * 150;
             }
             break;
         case happy:
