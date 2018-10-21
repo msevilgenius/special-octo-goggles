@@ -8,7 +8,7 @@ using namespace rgb_matrix;
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::FrameCanvas;
 
-Bill::Bill(RGBMatrix *matrix, SDL_Joystick* js) : matrix(matrix), state(normal), normal_face(bill::Normal(color)), closed_face(bill::Closed(color)),
+Bill::Bill(RGBMatrix *matrix, SDL_Joystick* js) : matrix(matrix), state(normalBill), normal_face(bill::Normal(color)), closed_face(bill::Closed(color)),
                                     brows_face(bill::Brows(color)), quizical_face(bill::Quizical(color)), angry_face(bill::Angry()),
                                     current_face(&normal_face), joystick(js)
 {
@@ -25,7 +25,7 @@ Bill::~Bill()
 void Bill::Start()
 {
     state_change_time = (rand() % 100 + 2) * 100;
-    state = normal;
+    state = normalBill;
     state_timer = 0;
 }
 
